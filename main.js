@@ -6,13 +6,13 @@ document.addEventListener('click', (event) => {
 
     function draw(r,color){
         // CSSスタイルを適用
-        div.style.width = `${r}px`;
+        div.style.width  = `${r}px`;
         div.style.height = `${r}px`;
         div.style.backgroundColor = color;
         div.style.borderRadius = '50%';
         div.style.position = 'absolute'; // positionを設定して絶対位置に配置
-        div.style.left = `${mouseX - r/2}px`; // 左からの距離を設定
-        div.style.top = `${mouseY - r/2}px`; // 上からの距離を設定
+        div.style.left = `${mouseX - r/2 + window.scrollX}px`; // 左からの距離を設定
+        div.style.top  = `${mouseY - r/2 + window.scrollY}px`; // 上からの距離を設定
     }
 
     // マウス位置関連
@@ -34,10 +34,10 @@ document.addEventListener('click', (event) => {
             element.remove();
             clearInterval(interval);
         }else{
-            element.style.width = `${siz - 4 }px`;
+            element.style.width  = `${siz - 4 }px`;
             element.style.height = `${siz - 4 }px`;
-            div.style.left = `${mouseX - siz/2}px`; // 左からの距離を設定
-            div.style.top = `${mouseY - siz/2}px`; // 上からの距離を設定
+            div.style.left = `${mouseX - siz/2 + window.scrollX}px`; // 左からの距離を設定
+            div.style.top  = `${mouseY - siz/2 + window.scrollY}px`; // 上からの距離を設定
         }
     },1000/30,div)
 });
